@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import prismadb from "@/lib/prismadb";
+import { Navbar } from "@/components/navbar";
 
 export default async function DashboardLayout({ params, children }: PropsWithChildren<{ params: { storeId: string } }>) {
     const { userId } = auth();
@@ -23,7 +24,7 @@ export default async function DashboardLayout({ params, children }: PropsWithChi
 
     return (
         <>
-            <div>This will be a navbar</div>
+            <Navbar/>
             {children}
         </>
     );
